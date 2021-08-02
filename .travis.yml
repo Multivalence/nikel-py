@@ -1,0 +1,33 @@
+language: python
+python:
+  - 3.6
+  - 3.7
+  - 3.8
+  - 3.9
+
+# Update pip to the latest version
+before_install:
+  - python --version
+  - pip install -U pip
+
+install:
+  - pip install -r requirements.txt
+
+#Test before deployment
+script:
+  - python -m unittest tests/test_buildings.py
+  - python -m unittest tests/test_courses.py
+  - python -m unittest tests/test_evals.py
+  - python -m unittest tests/test_exams.py
+  - python -m unittest tests/test_food.py
+  - python -m unittest tests/test_parking.py
+  - python -m unittest tests/test_programs.py
+  - python -m unittest tests/test_services.py
+  - python -m unittest tests/test_textbooks.py
+
+deploy:
+  provider: pypi
+  username: "__token__"
+  password: "$PYPI_TOKEN"
+  on:
+    branch: master
