@@ -1,4 +1,5 @@
 import unittest
+from _async_testing import async_wrapper
 from nikel_py import Exams
 
 
@@ -17,9 +18,7 @@ class ExamsTestCase(unittest.TestCase):
         self.assertEqual(x.campus, "Mississauga")
 
 
-
-class ExamsAsyncTestCase(unittest.IsolatedAsyncioTestCase):
-
+    @async_wrapper
     async def test_async(self):
 
         #Gets course code for exam that starts at '2019-06-25'

@@ -1,4 +1,5 @@
 import unittest
+from _async_testing import async_wrapper
 from nikel_py import Foods
 
 '''
@@ -17,8 +18,7 @@ class FoodTestCase(unittest.TestCase):
 
 
 
-class FoodAsyncTestCase(unittest.IsolatedAsyncioTestCase):
-
+    @async_wrapper
     async def test_async(self):
 
         #Gets address of Restaurant that provides Gluten Free Items

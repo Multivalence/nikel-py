@@ -1,4 +1,5 @@
 import unittest
+from _async_testing import async_wrapper
 from nikel_py import Services
 
 
@@ -17,9 +18,7 @@ class ServicesTestCase(unittest.TestCase):
         self.assertEqual(x.name, "Career Exploration and Education")
 
 
-
-class ServicesAsyncTestCase(unittest.IsolatedAsyncioTestCase):
-
+    @async_wrapper
     async def test_async(self):
 
         #Gets campus for 'John P. Robarts Research Library' Service

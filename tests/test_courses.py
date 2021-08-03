@@ -1,4 +1,5 @@
 import unittest
+from _async_testing import async_wrapper
 from nikel_py import Courses
 
 
@@ -16,9 +17,7 @@ class CoursesTestCase(unittest.TestCase):
         self.assertEqual(x.name, "Introduction to Computer Programming")
 
 
-
-class CoursesAsyncTestCase(unittest.IsolatedAsyncioTestCase):
-
+    @async_wrapper
     async def test_async(self):
 
         #Gets Course code of a course named 'Introduction to Computer Programming'

@@ -1,4 +1,5 @@
 import unittest
+from _async_testing import async_wrapper
 from nikel_py import Parking
 
 '''
@@ -16,9 +17,7 @@ class ParkingTestCase(unittest.TestCase):
         self.assertEqual(x.alias, "Faculty of Education")
 
 
-
-class ParkingAsyncTestCase(unittest.IsolatedAsyncioTestCase):
-
+    @async_wrapper
     async def test_async(self):
 
         #Gets Address of a Parking spot at the Mississauga Campus. The parking spot must also have a name that starts with 'Alumni'

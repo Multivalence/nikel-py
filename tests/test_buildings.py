@@ -1,4 +1,5 @@
 import unittest
+from _async_testing import async_wrapper
 from nikel_py import Buildings
 
 '''
@@ -16,9 +17,7 @@ class BuildingsTestCase(unittest.TestCase):
         self.assertEqual(x.name, "University College")
 
 
-
-class BuildingsAsyncTestCase(unittest.IsolatedAsyncioTestCase):
-
+    @async_wrapper
     async def test_async(self):
 
         #Gets Code of Building that has the name 'Hart House'

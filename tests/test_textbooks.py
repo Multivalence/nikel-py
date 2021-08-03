@@ -1,4 +1,5 @@
 import unittest
+from _async_testing import async_wrapper
 from nikel_py import Textbooks
 
 
@@ -17,8 +18,7 @@ class TextbooksTestCase(unittest.TestCase):
 
 
 
-class TextbooksAsyncTestCase(unittest.IsolatedAsyncioTestCase):
-
+    @async_wrapper
     async def test_async(self):
 
         #Gets name of a textbook that costs less than $300

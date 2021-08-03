@@ -1,10 +1,12 @@
 import unittest
+from _async_testing import async_wrapper
 from nikel_py import Programs
 
 
 '''
 Data is subject to change. As such, Test Cases may or may not work in the future
 '''
+
 
 class ProgramsTestCase(unittest.TestCase):
 
@@ -17,9 +19,7 @@ class ProgramsTestCase(unittest.TestCase):
         self.assertEqual(x.type, "major")
 
 
-
-class ProgramsAsyncTestCase(unittest.IsolatedAsyncioTestCase):
-
+    @async_wrapper
     async def test_async(self):
 
         #Gets name of program that requires 4 credits and is done at the Mississauga Campus

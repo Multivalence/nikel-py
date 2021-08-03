@@ -1,22 +1,28 @@
 import unittest
+from _async_testing import async_wrapper
 from nikel_py import Evals
+
+'''
+Data is subject to change. As such, Test Cases may or may not work in the future
+'''
+
 
 class CoursesTestCase(unittest.TestCase):
 
     def test_sync(self):
 
-        x = Courses.get({'code' : '(CSC'}, limit=1)[0]
-        self.assertEqual(x.name, "Introduction to Computer Programming")
+        #Gets ID of Eval associated with 'Intro to Academic Studies'
+        x = Evals.get({'name' : 'Intro to Academic Studies'}, limit=1)[0]
+        self.assertEqual(x.id, "ABP100Y1")
 
 
-
-class CoursesAsyncTestCase(unittest.IsolatedAsyncioTestCase):
-
+    @async_wrapper
     async def test_async(self):
 
-        x = await Courses.async_get({'name' : 'Introduction to Computer Programming'}, limit=1)
+        #Gets name of Eval associated with the St. George Campus
+        x = await Evals.async_get({'campus' : 'St. George'}, limit=1)
         x = x[0]
-        self.assertEqual(x.code, "CSC108H1")
+        self.assertEqual(x.name, "Intro to Academic Studies")
 
 
 
