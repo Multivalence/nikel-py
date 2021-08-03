@@ -1,6 +1,15 @@
 import unittest
-from _async_testing import async_wrapper
 from nikel_py import Parking
+
+import asyncio
+
+def async_wrapper(f):
+    def wrapper(*args, **kwargs):
+        coro = asyncio.coroutine(f)
+        future = coro(*args, **kwargs)
+        loop = asyncio.get_event_loop()
+        loop.run_until_complete(future)
+    return wrapper
 
 '''
 Data is subject to change. As such, Test Cases may or may not work in the future

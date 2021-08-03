@@ -1,6 +1,15 @@
 import unittest
-from _async_testing import async_wrapper
 from nikel_py import Courses
+
+import asyncio
+
+def async_wrapper(f):
+    def wrapper(*args, **kwargs):
+        coro = asyncio.coroutine(f)
+        future = coro(*args, **kwargs)
+        loop = asyncio.get_event_loop()
+        loop.run_until_complete(future)
+    return wrapper
 
 
 '''
