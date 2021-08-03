@@ -3,14 +3,12 @@ from codecs import open
 from os import path
 
 
-with open('requirements.txt') as f:
-    requirements = f.read().splitlines()
-
-
-
-
 # The directory containing this file
 HERE = path.abspath(path.dirname(__file__))
+
+
+with open(path.join(HERE,'requirements.txt')) as f:
+    requirements = f.read().splitlines()
 
 # Get the long description from the README file
 with open(path.join(HERE, 'README.md'), encoding='utf-8') as f:
@@ -19,7 +17,7 @@ with open(path.join(HERE, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name="nikel-py",
-    version="0.1.4",
+    version="0.1.5",
     description="Python API Wrapper for the Nikel API",
     long_description=long_description,
     long_description_content_type="text/markdown",
