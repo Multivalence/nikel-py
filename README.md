@@ -1,6 +1,6 @@
 # nikel-py
 
-[![PyPI](https://img.shields.io/pypi/v/nikel-py.svg)](https://pypi.org/project/nikel-py/) [![Versions](https://img.shields.io/pypi/pyversions/nikel-py.svg)](https://pypi.org/project/nikel-py/)
+[![PyPI](https://img.shields.io/pypi/v/nikel-py.svg)](https://pypi.org/project/nikel-py/) [![Versions](https://img.shields.io/pypi/pyversions/nikel-py.svg)](https://pypi.org/project/nikel-py/) [![Build Status](https://api.travis-ci.com/Multivalence/nikel-py.svg?branch=master)](https://travis-ci.com/github/Multivalence/nikel-py)
 
 A modern, easy to use, async and sync API wrapper for the nikel API written in Python.
 
