@@ -19,7 +19,7 @@ with open(path.join(HERE, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name="nikel-py",
-    version="0.1.3",
+    version="0.1.4",
     description="Python API Wrapper for the Nikel API",
     long_description=long_description,
     long_description_content_type="text/markdown",
