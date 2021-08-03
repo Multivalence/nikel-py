@@ -6,10 +6,6 @@ from os import path
 # The directory containing this file
 HERE = path.abspath(path.dirname(__file__))
 
-
-with open(path.join(HERE,'requirements.txt')) as f:
-    requirements = f.read().splitlines()
-
 # Get the long description from the README file
 with open(path.join(HERE, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
@@ -43,6 +39,6 @@ setup(
     ],
     packages=["nikel_py", "nikel_py.utils"],
     include_package_data=True,
-    install_requires=requirements,
+    install_requires=['requests','aiohttp'],
     python_requires='>=3.6.0'
 )
