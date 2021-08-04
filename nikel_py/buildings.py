@@ -1,6 +1,7 @@
 import typing
 from nikel_py.utils._constants import BUILDINGS_BASE_URL
 from nikel_py.utils._getter import _get, _async_get
+from dateutil import parser
 
 
 class Building:
@@ -16,7 +17,7 @@ class Building:
         self.short_name = response['short_name']
         self.address = response['address']
         self.coordinates = response['coordinates']
-        self.last_updated = response["last_updated"]
+        self.last_updated = parser.parse(response["last_updated"])
 
 
     @property

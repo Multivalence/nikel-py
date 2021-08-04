@@ -1,6 +1,7 @@
 import typing
 from nikel_py.utils._constants import EVALS_BASE_URL
 from nikel_py.utils._getter import _get, _async_get
+from dateutil import parser
 
 
 class Eval:
@@ -13,7 +14,7 @@ class Eval:
         self.campus = response['campus']
         self.name = response['name']
         self.terms = response['terms']
-        self.last_updated = response["last_updated"]
+        self.last_updated = parser.parse(response["last_updated"])
 
 
     @property

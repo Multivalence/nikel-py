@@ -1,6 +1,7 @@
 import typing
 from nikel_py.utils._constants import EXAMS_BASE_URL
 from nikel_py.utils._getter import _get, _async_get
+from dateutil import parser
 
 
 class Exam:
@@ -18,7 +19,7 @@ class Exam:
         self.end = response['end']
         self.duration = response['duration']
         self.sections = response['sections']
-        self.last_updated = response["last_updated"]
+        self.last_updated = parser.parse(response["last_updated"])
 
 
     @property

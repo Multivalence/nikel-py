@@ -1,6 +1,7 @@
 import typing
 from nikel_py.utils._constants import PARKING_BASE_URL
 from nikel_py.utils._getter import _get, _async_get
+from dateutil import parser
 
 
 class Park:
@@ -17,7 +18,7 @@ class Park:
         self.coordinates = response['coordinates']
         self.alias = response['alias']
         self.building_id = response['building_id']
-        self.last_updated = response["last_updated"]
+        self.last_updated = parser.parse(response["last_updated"])
 
 
 

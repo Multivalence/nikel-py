@@ -13,7 +13,7 @@ with open(path.join(HERE, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name="nikel-py",
-    version="0.1.6",
+    version="0.1.7",
     description="Python API Wrapper for the Nikel API",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -39,6 +39,6 @@ setup(
     ],
     packages=["nikel_py", "nikel_py.utils"],
     include_package_data=True,
-    install_requires=['requests','aiohttp'],
+    install_requires=['requests','aiohttp', 'python-dateutil'],
     python_requires='>=3.6.0'
 )

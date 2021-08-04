@@ -1,17 +1,3 @@
-from nikel_py.buildings import Buildings
-from nikel_py.courses import Courses
-from nikel_py.evals import Evals
-from nikel_py.exams import Exams
-from nikel_py.food import Foods
-from nikel_py.parking import Parking
-from nikel_py.programs import Programs
-from nikel_py.services import Services
-from nikel_py.textbooks import Textbooks
-from nikel_py.utils import errors
-
-
-'''
-
 MIT License
 
 Copyright (c) 2021-Present Multivalence
@@ -33,5 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-'''

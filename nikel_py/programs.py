@@ -1,6 +1,7 @@
 import typing
 from nikel_py.utils._constants import PROGRAMS_BASE_URL
 from nikel_py.utils._getter import _get, _async_get
+from dateutil import parser
 
 
 class Program:
@@ -16,7 +17,7 @@ class Program:
         self.type = response['type']
         self.enrollment = response['enrollment']
         self.completion = response['completion']
-        self.last_updated = response["last_updated"]
+        self.last_updated = parser.parse(response["last_updated"])
 
 
 

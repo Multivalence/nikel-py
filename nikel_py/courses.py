@@ -1,6 +1,7 @@
 import typing
 from nikel_py.utils._constants import COURSES_BASE_URL
 from nikel_py.utils._getter import _get, _async_get
+from dateutil import parser
 
 
 class Course:
@@ -28,7 +29,7 @@ class Course:
         self.utsc_breadth = response['utsc_breadth']
         self.apsc_electives = response['apsc_electives']
         self.meeting_sections = response['meeting_sections']
-        self.last_updated = response["last_updated"]
+        self.last_updated = parser.parse(response["last_updated"])
 
 
     @property

@@ -1,6 +1,7 @@
 import typing
 from nikel_py.utils._constants import TEXTBOOKS_BASE_URL
 from nikel_py.utils._getter import _get, _async_get
+from dateutil import parser
 
 
 class Textbook:
@@ -18,7 +19,7 @@ class Textbook:
         self.price = response['price']
         self.url = response['url']
         self.courses = response['courses']
-        self.last_updated = response["last_updated"]
+        self.last_updated = parser.parse(response["last_updated"])
 
 
 

@@ -1,2 +1,3 @@
 aiohttp
+python-dateutil
 requests

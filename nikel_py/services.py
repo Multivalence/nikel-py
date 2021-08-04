@@ -1,6 +1,7 @@
 import typing
 from nikel_py.utils._constants import SERVICES_BASE_URL
 from nikel_py.utils._getter import _get, _async_get
+from dateutil import parser
 
 
 class Service:
@@ -19,7 +20,7 @@ class Service:
         self.coordinates = response['coordinates']
         self.tags = response['tags']
         self.attributes = response['attributes']
-        self.last_updated = response["last_updated"]
+        self.last_updated = parser.parse(response["last_updated"])
 
 
 
