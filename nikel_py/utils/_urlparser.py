@@ -2,10 +2,6 @@ from nikel_py.utils._constants import *
 from nikel_py.utils.errors import InvalidKey
 
 
-# #Currently not being used but better support may be added in the future
-# OPERATORS = ("!", "<", "<=", ">", ">=", "(", ")", "~")
-
-
 def url_parse(base_url : str, query : dict, limit : int) -> str:
 
     lookup = {
@@ -22,7 +18,7 @@ def url_parse(base_url : str, query : dict, limit : int) -> str:
 
     for i in query:
 
-        if i not in lookup[base_url[:base_url.find("?") + 1]]:
+        if i.split('.')[0] not in lookup[base_url[:base_url.find("?") + 1]]:
             raise InvalidKey(i)
 
         if isinstance(query[i], str):
