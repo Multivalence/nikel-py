@@ -15,12 +15,12 @@ def _get(base_url : str, query : typing.Dict = None, limit : int = 10):
         r = requests.get(url)
 
         if r.status_code != 200:
-            raise ResponseError
+            raise ResponseError(f"Request raised status code {r.status_code}. Possibly rate limited?")
 
         r = r.json()
 
-    except Exception:
-        raise ResponseError
+    except Exception as e:
+        raise ResponseError(e)
 
 
     if len(r['response']) >= 1:
@@ -45,12 +45,12 @@ async def _async_get(base_url : str, query : typing.Dict = None, limit : int = 1
             async with session.get(url) as resp:
 
                 if resp.status != 200:
-                    raise ResponseError
+                    raise ResponseError(f"Request raised status code {resp.status}. Possibly rate limited?")
 
                 r = await resp.json()
 
-    except Exception:
-        raise ResponseError
+    except Exception as e:
+        raise ResponseError(e)
 
 
     if len(r['response']) >= 1:
