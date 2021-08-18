@@ -46,7 +46,11 @@ py -3 -m pip install -U nikel-py
 ```py
 from nikel_py import Courses
 
-#Creates a list (limited to 1) of courses that have the name 'Introduction to Computer Programming'
+'''
+Creates a list (limited to 1) of courses that have the name "Introduction to Computer 
+Programming"
+'''
+
 x = Courses.get({'name' : 'Introduction to Computer Programming'}, limit=1)
 
 print(x[0].code)
@@ -79,12 +83,21 @@ asyncio.run(main())
 ```py
 from nikel_py import Foods
 
-#Creates a list (limited to 10) of Restaurants that provide Gluten Free Foods
-x = Foods.get({'attributes' : '~Gluten Free'}, limit=10)
+query = {
+    'coordinates.latitude' : 43.66332,
+    'attributes' : '~Gluten Free'
+}
 
-print(x[0].address)
+'''
+Creates a list (limited to 10) of Restaurants that provide Gluten Free Foods and have 
+a latitude of 43.66332
+'''
 
-# >> 89 Chestnut Street, Toronto, ON M5G 1R1
+x = Foods.get(query, limit=10)
+
+print(x[0].name)
+
+# >> Second Cup Kiosk
 ```
 
 ### Asynchronous
@@ -95,8 +108,17 @@ from nikel_py import Programs
 
 async def main():
     
-    #Creates a list (limited to 1) of Programs that start with Computer Science and are done at the St. George Campus
-    x = await Programs.async_get({'campus' : 'St. George', 'name' : '(Computer Science'}, limit=1)
+    query = {
+        'campus' : 'St. George',
+        'name' : '(Computer Science'
+    }
+    
+    '''
+    Creates a list (limited to 1) of Programs that start with Computer Science and 
+    are done at the St. George Campus
+    '''
+    
+    x = await Programs.async_get(query, limit=1)
     print(x[0].type)
     
 
@@ -125,6 +147,8 @@ asyncio.run(main())
 
 
 ## Query & Properties Lookup Table
+
+**Note: All Objects listed below have an `all_data` property which returns every property in JSON format.**
 
 | Courses | Programs | Textbooks | Exams | Evals | Food | Services | Buildings | Parking
 | ----------- | ----------- | -----------|----------- | ----------- | -----------| ----------- | ----------- | -----------|
